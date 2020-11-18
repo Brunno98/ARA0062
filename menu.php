@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Confere se a sessao está autenticada
 if (!isset($_SESSION["autenticado"])) {
   // Redireciona o usuario para a tela de login
@@ -34,6 +33,9 @@ if (!isset($_SESSION["autenticado"])) {
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="blog/consultaBlog.php">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a href="sair.php" class="nav-link">sair</a>
               </li>
             </ul>
     
