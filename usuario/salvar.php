@@ -1,4 +1,11 @@
 <?php
+session_start();
+// Confere se a sessao está autenticada
+if (!isset($_SESSION["autenticado"])) {
+    session_destroy();
+    // Redireciona o usuario para a tela de login
+    header("Location: ../index.html");
+}
 
 include_once "../servico/Bd.php";
 
@@ -8,7 +15,6 @@ $senha = $_GET["senha"];
 if (isset($_GET["id"])) {
     // atualiza registro
     $id = $_GET["id"];
-    // esse comando sql foi alterado pra ser compativel com um banco ja existente
     $sql = "update `usuario` set login='$login', senha='$senha' where id='$id' ";
     $operacao = "atualizado";
 } else {
@@ -19,9 +25,6 @@ if (isset($_GET["id"])) {
 
 $bd = new Bd();
 $contador = $bd->exec($sql);
-
 echo "<h1>foi $operacao $contador registro</h1>";
-
 ?>
-
 <a href="ConsultaUsuario.php">Voltar</a>
