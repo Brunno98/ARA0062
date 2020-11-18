@@ -1,13 +1,10 @@
 <?php
 session_start();
 
+// Confere se a sessao está autenticada
 if (!isset($_SESSION["autenticado"])) {
+  // Redireciona o usuario para a tela de login
     header("Location: index.html");
-    // echo "
-    // <script>
-    //   window.location.replace('https://aula-php-andre-eppinghaus.000webhostapp.com/20202/3006');
-    // </script>
-    // ";
 }
 ?>
 
@@ -31,6 +28,9 @@ if (!isset($_SESSION["autenticado"])) {
            <ul class="nav">
               <li class="nav-item">
                 <a class="nav-link active" href="usuario/ConsultaUsuario.php">Cadastro de Usuários</a>
+              </li>
+              <li clas="nav-item">
+                <a class="nav-link" href="cadastroBlog.php">Cadastro de Blog</a>
               </li>
             </ul>
     

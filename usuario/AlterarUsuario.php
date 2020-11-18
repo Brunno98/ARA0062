@@ -4,7 +4,7 @@ include_once "../servico/Bd.php";
 
 $id = $_GET["id"];
 $bd = new Bd();
-$sql = "select * from Username where id='$id'";
+$sql = "select * from usuario where id='$id'";
 
 foreach ($bd->query($sql) as $row)
 {
@@ -38,7 +38,7 @@ foreach ($bd->query($sql) as $row)
       
       <form action="salvar.php">
         <div class="form-group">
-          <label for="exampleInputEmail1">Login</label>
+          <label for="Login">Login</label>
           <?php
               echo "<input type='hidden' name='id' value='$id' >";
               echo "<input type='text' name='login' class='form-control' value='$login'  >";

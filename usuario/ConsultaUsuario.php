@@ -44,13 +44,13 @@ include_once "../servico/Bd.php";
         <tbody>
           <?php
               $bd = new Bd();
-              $sql = "select * from Usuario";
+              $sql = "select * from usuario";
             
               foreach ($bd->query($sql) as $row)
               {
                   echo "<tr>";
                   echo "<td>". $row['id'] . "</td>";
-                  echo "<td>". $row['username'] . "</td>"; //esse campo foi alterado pra testar com um banco de dados ja montado
+                  echo "<td>". $row['login'] . "</td>";
                   echo "<td>". $row['senha'] . "</td>";
                   // Botão de excluir registro
                   echo "<td><a href='#' onclick ='Pergunta(". $row['id'] . ")'> Excluir</a></td>";

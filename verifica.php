@@ -1,23 +1,27 @@
 <?php
 session_start();
 
+require_once "servico/Bd.php";
+
 $login=$_POST["login"];
 $senha=$_POST["senha"];
 
+$bd = new Bd();
+$sql = "SELECT * FROM usuario where login = '$login'";
+$consulta = $bd->query($sql)->fetch();
+if (!$consulta) {
+    session_destroy();
+    echo "Usuario não encontrado <br>";
+    echo "<a href='index.html'>< Voltar</a>";
+    die;
+}
 
-if ($login =="admin" && $senha =="1234") {
+if ($login == $consulta["login"] && $senha == $consulta["senha"]) {
     $_SESSION["autenticado"] = true;
     header("Location: menu.php");
 } else {
     session_destroy();
-    $html ="
-<html>
-    <head><title>Tela de verificação </title></head>
-    <body>
-        <h1>O login é $login e sua senha é $senha e são inválidos</h1>
-    </boyd>
-</html>";    
+    echo "Senha inválida<br>";
+    echo "<a href='index.html'>< Voltar</a>";
 }
-
-echo $html;
 ?>
