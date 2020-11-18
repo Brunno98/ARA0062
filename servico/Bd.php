@@ -4,10 +4,11 @@ class Bd {
     
     private $dsn, $user, $password, $conn;
     
-    function __construct() {
-        $this->dsn = 'mysql:dbname=id13482607_aula_php;host=localhost';
-        $this->user = 'id13482607_root';
-        $this->password = '_R]rBVRDX5ZALJ~5';
+    function __construct()
+    {
+        $this->dsn = 'mysql:dbname=Site;host=localhost';
+        $this->user = 'brunno';
+        $this->password = 'minhasenha';
         
         try {
             $this->conn = new PDO($this->dsn, $this->user, $this->password);
@@ -19,28 +20,26 @@ class Bd {
     /**
      * Rodar uma consulta select
      **/
-    function query($sql) {
+    function query($sql)
+    {
        try {
            return $this->conn->query($sql);
         } catch (PDOException $e) {
             echo 'Query failed: ' . $e->getMessage();
         }
-        
-        
     }
     
     /**
      * Executar sql = insert, update, delete
      * */
-    function exec($sql){
+    function exec($sql)
+    {
          try {
            return $this->conn->exec($sql);
         } catch (PDOException $e) {
             echo 'Exec failed: ' . $e->getMessage();
         }
-        
     }
 }
-
 
 ?>
