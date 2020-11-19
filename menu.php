@@ -21,21 +21,22 @@ if (!isset($_SESSION["autenticado"])) {
   </head>
   <body>
       
+      <?php
+        include "componentes/Navbar.php";
+      ?>
+
       <div class="container">
-        <h1>Bem-vindo usuário</h1>
+        <h1>Bem-vindo <?php echo $_SESSION["login"]?></h1>
        
            <ul class="nav">
               <li class="nav-item">
                 <a class="nav-link active" href="usuario/ConsultaUsuario.php">Cadastro de Usuários</a>
               </li>
               <li clas="nav-item">
-                <a class="nav-link" href="blog/incluirBlog.php">Cadastro de Blog</a>
+                <a class="nav-link" href="blog/IncluirBlog.php">Cadastro de Blog</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="blog/consultaBlog.php">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a href="sair.php" class="nav-link">sair</a>
+                <a class="nav-link" href="blog/ConsultaBlog.php">Blog</a>
               </li>
             </ul>
     

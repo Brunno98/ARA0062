@@ -22,7 +22,7 @@ if (!isset($_SESSION["autenticado"])) {
     <title>Inclusão de usuário</title>
   </head>
   <body>
-      
+    <?php include "../componentes/Navbar.php"; ?> 
     <div class="container">
       <h1>Tela de inclusão de usuários</h1>
       <hr>
@@ -30,7 +30,7 @@ if (!isset($_SESSION["autenticado"])) {
       <!-- TODO: alterar -->
       <br><br>
       
-      <form action="salvar.php">
+      <form action="Salvar.php">
         <div class="form-group">
           <label for="login">Login</label>
           <input type="text" name="login" class="form-control" id="login" >

@@ -26,7 +26,7 @@ include_once "../servico/Bd.php";
     <title>Gerenciamento de usuários</title>
   </head>
   <body>
-      
+    <?php include "../componentes/Navbar.php"; ?> 
     <div class="container">
       <h1>Tela de usuários</h1>
       <hr>

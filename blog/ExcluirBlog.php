@@ -16,4 +16,4 @@ $cont = $bd->exec($sql);
 echo "foi excluido $cont registros";
 ?>
 
-<a href="consultaBlog.php"> < Voltar</a>
+<a href="ConsultaBlog.php"> < Voltar</a>

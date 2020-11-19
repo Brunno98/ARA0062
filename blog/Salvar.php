@@ -31,4 +31,4 @@ echo "<h1>foi $operacao $contador Post</h1>";
 
 ?>
 
-<a href="consultaBlog.php">Voltar</a>
+<a href="ConsultaBlog.php">Voltar</a>

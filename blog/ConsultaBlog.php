@@ -9,17 +9,27 @@ if (!isset($_SESSION["autenticado"])) {
 
 include_once "../servico/Bd.php";
 
-$id = $_GET["id"];
-$bd = new Bd();
-$sql = "select * from usuario where id='$id'";
-
-foreach ($bd->query($sql) as $row)
-{
-    $login = $row['login'];
-    $senha = $row['senha'];
-}
-
+$post = "
+<div class='col-4'>
+  <div class='card mb-3'>
+    <div class='card-body'>
+      <input type='hidden' name='id' value=':id'>
+      <h5 class='card-title'>:title</h5>
+      <p class='card-text'>:corpo</p>
+      <div class='row'>
+        <div class='col'>
+          <a href='AlterarBlog.php?id=:id' class='btn btn-info btn-sm btn-block'>Alterar</a>
+        </div>
+        <div class='col'>
+          <a href='ExcluirBlog.php?id=:id' class='btn btn-danger btn-sm btn-block'>Excluir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+";
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -30,40 +40,39 @@ foreach ($bd->query($sql) as $row)
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <!-- CSS da Tabela de visualização de dados -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-    <title>Alterção de usuário</title>
   </head>
   <body>
-    <?php include "../componentes/Navbar.php"; ?> 
+    <?php include "../componentes/Navbar.php"; ?>
     <div class="container">
-      <h1>Tela de inclusão de usuários</h1>
+      <h1>Tela do Blog</h1>
       <hr>
-      <a href="ConsultaUsuario.php"> < Voltar </a>
+      <a href="../menu.php"> < Voltar </a>
+      <!-- TODO: alterar -->
+      <br><br> 
       
+      <a class="btn btn-primary" href="IncluirBlog.php" role="button">novo Post</a>
+      <!-- TODO: alterar -->
       <br><br>
       
-      <form action="Salvar.php">
-        <div class="form-group">
-          <label for="Login">Login</label>
-          <?php
-              echo "<input type='hidden' name='id' value='$id' >";
-              echo "<input type='text' name='login' class='form-control' value='$login'  >";
-          ?>
-        </div>
-        <div class="form-group">
-          <label for="senha">Senha</label>
-          <?php
-          echo "<input type='text' name='senha' class='form-control' value='$senha' id='senha' >";
-          ?>
-        </div>
-        <button type="submit" class="btn btn-primary">Salvar</button>
-      </form>
-   </div> <!-- container -->
+      <div class="row row-cols-3 justify-content-around">
+        <?php
+          $bd = new Bd();
+          $sql = "select * from blog";
+          foreach ($bd->query($sql) as $row) {
+              echo str_replace(
+                [":id", ":title", ":corpo"],
+                [$row["id"], $row["titulo"], $row["corpo"]],
+                $post
+              );
+          }
+        ?>
+      </div>
+    </div>
     
+
     <!-- jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
+     
   </body>
 </html>
