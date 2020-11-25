@@ -8,6 +8,7 @@ $logout = $base . "servico/Logout.php";
 ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarNav">
+    <input type="hidden" id="pagina" value="<?php echo $_SESSION["pagina"]; ?>">
     <ul class="navbar-nav">
       <li class="nav-item" id="navMenu">
         <a href="<?php echo $menu ?>" class="nav-link">Menu</a>
@@ -29,3 +30,22 @@ $logout = $base . "servico/Logout.php";
   <!-- Conferir a caminho absoluto em que o projeto se encontra -->
   <a href="<?php echo $logout ?>" class="btn btn-outline-danger btn-sm mx-3">sair</a>
 </nav>
+
+<script>
+  let pagina = document.getElementById("pagina").value;
+  let usu;
+  switch (pagina) {
+    case "usuario":
+      usu = document.getElementById("navUsuario");
+      usu.classList.add("active");
+      break;
+    case "blog":
+      usu = document.getElementById("navBlog");
+      usu.classList.add("active");
+      break;
+    case "menu":
+      usu = document.getElementById("navMenu");
+      usu.classList.add("active");
+      break;
+  }
+</script>

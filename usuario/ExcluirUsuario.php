@@ -2,6 +2,8 @@
 require_once "../servico/autentica.php";
 require_once "../servico/Bd.php";
 
+$_SESSION["pagina"] = "usuario";
+
 $id = $_GET["id"];
 $sql = "delete from usuario where id='$id' ";
 $bd = new Bd();

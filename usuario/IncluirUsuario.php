@@ -1,5 +1,7 @@
 <?php
 require_once "../servico/autentica.php";
+
+$_SESSION["pagina"] = "usuario";
 ?>
 <!doctype html>
 <html lang="en">

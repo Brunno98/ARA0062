@@ -2,6 +2,8 @@
 require_once "../servico/autentica.php";
 require_once "../servico/Bd.php";
 
+$_SESSION["pagina"] = "usuario";
+
 ?>
 
 <!doctype html>

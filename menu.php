@@ -1,5 +1,6 @@
 <?php
 require_once "servico/autentica.php";
+$_SESSION["pagina"] = "menu";
 ?>
 
 <!doctype html>

@@ -2,6 +2,8 @@
 require_once "../servico/autentica.php";
 include_once "../servico/Bd.php";
 
+$_SESSION["pagina"] = "blog";
+
 $post = "
 <div class='col-4'>
   <div class='card mb-3'>

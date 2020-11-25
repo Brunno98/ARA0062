@@ -2,6 +2,8 @@
 require_once "../servico/autentica.php";
 require_once "../servico/Bd.php";
 
+$_SESSION["pagina"] = "blog";
+
 $id = $_GET["id"];
 $sql = "SELECT * FROM blog WHERE id = '$id'";
 $bd = new Bd();
