@@ -1,12 +1,5 @@
 <?php
-session_start();
-// Confere se a sessao está autenticada
-if (!isset($_SESSION["autenticado"])) {
-    session_destroy();
-    // Redireciona o usuario para a tela de login
-    header("Location: ../index.html");
-}
-
+require_once "../servico/autentica.php";
 include_once "../servico/Bd.php";
 
 $post = "
@@ -21,7 +14,7 @@ $post = "
           <a href='AlterarBlog.php?id=:id' class='btn btn-info btn-sm btn-block'>Alterar</a>
         </div>
         <div class='col'>
-          <a href='ExcluirBlog.php?id=:id' class='btn btn-danger btn-sm btn-block'>Excluir</a>
+          <a href='#' onclick='pergunta(:id)' class='btn btn-danger btn-sm btn-block'>Excluir</a>
         </div>
       </div>
     </div>
@@ -69,6 +62,15 @@ $post = "
       </div>
     </div>
     
+    
+    <script>
+        function pergunta(id) {
+            let resp = confirm("Deseja realmente excluir este Post?");
+            if (resp) {
+                window.location.replace("ExcluirBlog.php?id=" + id);
+            }
+        }
+    </script>
 
     <!-- jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

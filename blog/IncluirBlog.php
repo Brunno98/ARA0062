@@ -1,11 +1,5 @@
 <?php
-session_start();
-// Confere se a sessao está autenticada
-if (!isset($_SESSION["autenticado"])) {
-    session_destroy();
-    // Redireciona o usuario para a tela de login
-    header("Location: ../index.html");
-}
+require_once "../servico/autentica.php";
 ?>
 
 <!doctype html>
@@ -24,7 +18,7 @@ if (!isset($_SESSION["autenticado"])) {
     <div class="container">
       <h1>Tela de inclusão de Post</h1>
       <hr>
-      <a href="consultaBlog.php"> < Voltar </a>
+      <a href="ConsultaBlog.php"> < Voltar </a>
       <!-- TODO: alterar -->
       <br><br>
       

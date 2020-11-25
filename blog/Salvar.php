@@ -1,11 +1,5 @@
 <?php
-session_start();
-// Confere se a sessao está autenticada
-if (!isset($_SESSION["autenticado"])) {
-    session_destroy();
-    // Redireciona o usuario para a tela de login
-    header("Location: ../index.html");
-}
+require_once "../servico/autentica.php";
 
 include_once "../servico/Bd.php";
 

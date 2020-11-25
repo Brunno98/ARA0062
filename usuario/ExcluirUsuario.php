@@ -1,13 +1,6 @@
 <?php
-session_start();
-// Confere se a sessao está autenticada
-if (!isset($_SESSION["autenticado"])) {
-    session_destroy();
-    // Redireciona o usuario para a tela de login
-    header("Location: ../index.html");
-}
-
-include_once "../servico/Bd.php";
+require_once "../servico/autentica.php";
+require_once "../servico/Bd.php";
 
 $id = $_GET["id"];
 $sql = "delete from usuario where id='$id' ";
