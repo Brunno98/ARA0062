@@ -28,9 +28,6 @@ $_SESSION["pagina"] = "menu";
               <li class="nav-item">
                 <a class="nav-link active" href="usuario/ConsultaUsuario.php">Cadastro de Usuários</a>
               </li>
-              <li clas="nav-item">
-                <a class="nav-link" href="blog/IncluirBlog.php">Cadastro de Blog</a>
-              </li>
               <li class="nav-item">
                 <a class="nav-link" href="blog/ConsultaBlog.php">Blog</a>
               </li>
