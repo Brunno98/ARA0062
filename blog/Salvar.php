@@ -14,7 +14,8 @@ if (isset($_GET["id"])) {
     $operacao = "atualizado";
 } else {
     // grava um novo
-    $sql = "INSERT INTO `blog` (`id`, `titulo`, `corpo`) VALUES (NULL, '$titulo', '$corpo')";    
+    $id_usuario = $_SESSION["id_usuario"];
+    $sql = "INSERT INTO `blog` (`id`, `titulo`, `corpo`, `id_usuario`) VALUES (NULL, '$titulo', '$corpo', $id_usuario)";    
     $operacao = "inserido";
 }
 

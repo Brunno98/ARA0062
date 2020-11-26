@@ -1,9 +1,11 @@
 <?php
 require_once "../servico/autentica.php";
+require_once "../componentes/post.php"; // estruturaPost()
 include_once "../servico/Bd.php";
 
 $_SESSION["pagina"] = "blog";
 
+/*
 $post = "
 <div class='col-4'>
   <div class='card mb-3'>
@@ -23,6 +25,7 @@ $post = "
   </div>
 </div>
 ";
+*/
 ?>
 
 <!doctype html>
@@ -52,13 +55,9 @@ $post = "
       <div class="row row-cols-3 justify-content-around">
         <?php
           $bd = new Bd();
-          $sql = "select * from blog";
+          $sql = "select b.id, b.titulo, b.corpo, u.login from blog b join usuario u on b.id_usuario = u.id";
           foreach ($bd->query($sql) as $row) {
-              echo str_replace(
-                [":id", ":title", ":corpo"],
-                [$row["id"], $row["titulo"], $row["corpo"]],
-                $post
-              );
+              estruturaPost($row["titulo"], $row["corpo"], $row["id"], $row["login"]);
           }
         ?>
       </div>

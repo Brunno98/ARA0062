@@ -19,6 +19,7 @@ if (!$consulta) {
 if ($login == $consulta["login"] && $senha == $consulta["senha"]) {
     $_SESSION["autenticado"] = true;
     $_SESSION["login"] = $login;
+    $_SESSION["id_usuario"] = $consulta["id"];
     header("Location: menu.php");
 } else {
     session_destroy();
