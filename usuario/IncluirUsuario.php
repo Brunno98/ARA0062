@@ -1,10 +1,11 @@
 <?php
 require_once "../servico/autentica.php";
 
-$_SESSION["pagina"] = "usuario";
+$_SESSION["pagina"] = "usuario"; // usado pelo navBar pra saber a pagina atual
 ?>
+
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -23,7 +24,7 @@ $_SESSION["pagina"] = "usuario";
       <h1>Tela de inclusão de usuários</h1>
       <hr>
       <a href="ConsultaUsuario.php"> < Voltar </a>
-      <!-- TODO: alterar -->
+
       <br><br>
       
       <form action="Salvar.php">

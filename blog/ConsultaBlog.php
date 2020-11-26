@@ -3,33 +3,12 @@ require_once "../servico/autentica.php";
 require_once "../componentes/post.php"; // estruturaPost()
 include_once "../servico/Bd.php";
 
-$_SESSION["pagina"] = "blog";
+$_SESSION["pagina"] = "blog"; // usado pelo navBar pra saber a pagina atual
 
-/*
-$post = "
-<div class='col-4'>
-  <div class='card mb-3'>
-    <div class='card-body'>
-      <input type='hidden' name='id' value=':id'>
-      <h5 class='card-title'>:title</h5>
-      <p class='card-text'>:corpo</p>
-      <div class='row'>
-        <div class='col'>
-          <a href='AlterarBlog.php?id=:id' class='btn btn-info btn-sm btn-block'>Alterar</a>
-        </div>
-        <div class='col'>
-          <a href='#' onclick='pergunta(:id)' class='btn btn-danger btn-sm btn-block'>Excluir</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-";
-*/
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -48,11 +27,15 @@ $post = "
       <!-- TODO: alterar -->
       <br><br> 
       
-      <a class="btn btn-primary" href="IncluirBlog.php" role="button">novo Post</a>
-      <!-- TODO: alterar -->
-      <br><br>
+      <div class="row">
+        <div class="col col-12 col-lg-2">
+          <a class="btn btn-primary btn-block" href="IncluirBlog.php" role="button">Novo Post</a>
+        </div>
+      </div>
+
+      <br>
       
-      <div class="row row-cols-3 justify-content-around">
+      <div class="row">
         <?php
           $bd = new Bd();
           $sql = "select b.id, b.titulo, b.corpo, u.login from blog b join usuario u on b.id_usuario = u.id";

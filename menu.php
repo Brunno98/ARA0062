@@ -1,10 +1,10 @@
 <?php
 require_once "servico/autentica.php";
-$_SESSION["pagina"] = "menu";
+$_SESSION["pagina"] = "menu"; // usado pelo navBar pra saber a pagina atual
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">

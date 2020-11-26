@@ -2,7 +2,7 @@
 require_once "../servico/autentica.php";
 require_once "../servico/Bd.php";
 
-$_SESSION["pagina"] = "usuario";
+$_SESSION["pagina"] = "usuario"; // usado pelo navBar pra saber a pagina atual
 
 $id = $_GET["id"];
 $bd = new Bd();
@@ -16,7 +16,7 @@ foreach ($bd->query($sql) as $row)
 
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">

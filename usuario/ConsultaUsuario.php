@@ -2,12 +2,12 @@
 require_once "../servico/autentica.php";
 require_once "../servico/Bd.php";
 
-$_SESSION["pagina"] = "usuario";
+$_SESSION["pagina"] = "usuario"; // usado pelo navBar pra saber a pagina atual
 
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -26,11 +26,14 @@ $_SESSION["pagina"] = "usuario";
       <h1>Tela de usuários</h1>
       <hr>
       <a href="../menu.php"> < Voltar </a>
-      <!-- TODO: alterar -->
+
       <br><br> 
       
-      <a class="btn btn-primary" href="IncluirUsuario.php" role="button">Incluir</a>
-      <!-- TODO: alterar -->
+      <div class="row">
+        <div class="col col-12 col-lg-2">
+          <a class="btn btn-primary btn-block" href="IncluirUsuario.php" role="button">Incluir</a>
+        </div>
+      </div>
       <br><br>
       
       <table id="example" class="display" style="width:100%">

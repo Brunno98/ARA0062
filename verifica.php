@@ -8,7 +8,14 @@ $senha=$_POST["senha"];
 
 $bd = new Bd();
 $sql = "SELECT * FROM usuario where login = '$login'";
+
+/*
+* o método query() retorna um objeto PDOStatement,
+* ao usar o método fetch() o resultado é convertido
+* para um array
+*/
 $consulta = $bd->query($sql)->fetch();
+
 if (!$consulta) {
     session_destroy();
     echo "Usuario não encontrado <br>";
